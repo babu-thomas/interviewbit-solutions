@@ -8,12 +8,11 @@ int Solution::repeatedNumber(const vector<int> &A) {
     }
     while(slow != fast);
 
-    int p1 = A[0];
-    int p2 = slow;
-    while(p1 != p2) {
-        p1 = A[p1];
-        p2 = A[p2];
+    slow = A[0];
+    while(slow != fast) {
+        slow = A[slow];
+        fast = A[fast];
     }
     
-    return p1;
+    return slow;
 }
