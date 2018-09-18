@@ -16,3 +16,19 @@ void Solution::nextPermutation(vector<int> &A) {
     
     return;
 }
+
+
+
+// Shorter version using STL functions
+// Time - O(N), Space - O(1)
+void Solution::nextPermutation(vector<int> &A) {
+    int n = A.size();
+    auto to_replace = is_sorted_until(A.rbegin(), A.rend());
+    if(to_replace != A.rend()) {
+        auto next_greater = upper_bound(A.rbegin(), to_replace, *to_replace);
+        iter_swap(to_replace, next_greater);
+    }
+    reverse(A.rbegin(), to_replace);
+    
+    return;
+}
