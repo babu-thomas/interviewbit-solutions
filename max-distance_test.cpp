@@ -1,35 +1,51 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define DEBUG(x)                                                               \
+    do {                                                                       \
+        std::cout << #x << ": " << x << " ";                                   \
+    } while (0)
+#define DEBUGL(x)                                                              \
+    do {                                                                       \
+        std::cout << #x << ": " << x << "\n";                                  \
+    } while (0)
+
+template <typename T> void print_vector(vector<T> a) {
+    for (auto &i : a) {
+        cout << i << " ";
+    }
+    cout << "\n";
+}
+
 // Time - O(N logN), Space - O(N)
-int Solution::maximumGap(const vector<int> &A) {
+int solve(const vector<int> &A) {
     int n = A.size();
-    if(n == 0) {
+    if (n == 0) {
         return -1;
     }
-    if(n == 1) {
+    if (n == 1) {
         return 0;
     }
 
     vector<pair<int, int>> to_sort;
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         to_sort.push_back({A[i], i});
     }
     sort(to_sort.begin(), to_sort.end());
 
     int max_idx = to_sort[n - 1].second;
     int result = 0;
-    for(int i = n - 2; i >= 0; i--) {
+    for (int i = n - 2; i >= 0; i--) {
         result = max(max_idx - to_sort[i].second, result);
         max_idx = max(to_sort[i].second, max_idx);
     }
-    
+
     return result;
 }
 
-
-
-// Better linear time solution
-
 // Time - O(N), Space - O(N)
-int Solution::maximumGap(const vector<int> &A) {
+int solve_linear(const vector<int> &A) {
     int n = A.size();
     if (n == 0) {
         return -1;
@@ -64,4 +80,15 @@ int Solution::maximumGap(const vector<int> &A) {
     }
 
     return result;
+}
+
+int main() {
+    // ios::sync_with_stdio(0);
+    // cin.tie(0);
+
+    vector<int> nums{9, 2, 3, 4, 5, 6, 7, 8, 18, 0};
+    cout << solve(nums) << "\n";
+    cout << solve_linear(nums) << "\n";
+
+    return 0;
 }
