@@ -30,15 +30,16 @@ int solve(int A) {
 int solve_better(int A) {
     int result = 0;
     bool is_negative = false;
-    if(A < 0) {
+    if (A < 0) {
         is_negative = true;
         A *= -1;
     }
 
-    while(A > 0) {
+    while (A > 0) {
         int digit = A % 10;
         // Check if adding a new digit will cause the reverse to overflow
-        if(result > (INT_MAX / 10) || (result == (INT_MAX / 10) && digit > (INT_MAX % 10))) {
+        if (result > (INT_MAX / 10) ||
+            (result == (INT_MAX / 10) && digit > (INT_MAX % 10))) {
             return 0;
         }
 
@@ -46,7 +47,7 @@ int solve_better(int A) {
         A /= 10;
     }
 
-    if(is_negative) {
+    if (is_negative) {
         return -result;
     }
 
