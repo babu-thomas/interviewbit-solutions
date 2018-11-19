@@ -33,8 +33,8 @@ template <typename T> void print_matrix_2d(vector<vector<T>> a) {
     cout << "\n";
 }
 
-// Time - O(K LogK), Space - O(K)
-// where K is the number of integers to generate.
+// Time - O(N LogN), Space - O(N)
+// where N is the number of integers to generate.
 vector<int> solve(const vector<int> &A, int B) {
     const vector<int> &primes = A;
     int nums_count = B;
@@ -56,6 +56,8 @@ vector<int> solve(const vector<int> &A, int B) {
 
     return result;
 }
+
+
 
 int main() {
     // ios::sync_with_stdio(0);

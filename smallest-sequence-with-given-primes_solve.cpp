@@ -1,5 +1,5 @@
-// Time - O(K LogK), Space - O(K)
-// where K is the number of integers to generate.
+// Time - O(N LogN), Space - O(N)
+// where N is the number of integers to generate.
 vector<int> Solution::solve(int A, int B, int C, int D) {
     vector<int> primes{A, B, C};
     int nums_count = D;
