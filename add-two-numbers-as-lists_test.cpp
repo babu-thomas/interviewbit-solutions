@@ -61,27 +61,19 @@ ListNode *solve(ListNode *A, ListNode *B) {
     }
 
     int sum = 0, carry = 0;
-    sum = list1->val + list2->val + carry;
-    ListNode *cur_sum_digit = new ListNode(sum % 10);
+    ListNode *cur_sum_digit = new ListNode(0);
     ListNode *sum_list_head = cur_sum_digit;
-    carry = sum / 10;
-    list1 = list1->next;
-    list2 = list2->next;
     while (list1 || list2 || carry) {
         sum = (list1 ? list1->val : 0) + (list2 ? list2->val : 0) + carry;
         cur_sum_digit->next = new ListNode(sum % 10);
         carry = sum / 10;
 
         cur_sum_digit = cur_sum_digit->next;
-        if (list1) {
-            list1 = list1->next;
-        }
-        if (list2) {
-            list2 = list2->next;
-        }
+        list1 = list1 ? list1->next : list1;
+        list2 = list2 ? list2->next : list2;
     }
 
-    return sum_list_head;
+    return sum_list_head->next;
 }
 
 int main() {
