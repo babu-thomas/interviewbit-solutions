@@ -50,14 +50,13 @@ string Solution::solve(int A, int B, int C, int D, vector<int> &E, vector<int> &
     to_visit.push(0 * 101 + 0);
     reachable.insert(0 * 101 + 0);
     while (!to_visit.empty()) {
-        // DEBUGL(to_visit.size());
         int cur_cell = to_visit.front();
         to_visit.pop();
 
         int cur_x = cur_cell / 101;
         int cur_y = cur_cell % 101;
 
-        // Top, Top-Right, Right, Bottom-right, Bottom, Bottom-left, Left,
+        // Top, Top-right, Right, Bottom-right, Bottom, Bottom-left, Left,
         // Top-left
         vector<int> diff_x{0, 1, 1, 1, 0, -1, -1, -1};
         vector<int> diff_y{1, 1, 0, -1, -1, -1, 0, 1};
