@@ -122,8 +122,8 @@ int main() {
     int target_y = 67;
     int circles_count = 5;
     int radius = 0;
-    const vector<int> &circles_center_x{17, 16, 12, 0, 40};
-    const vector<int> &circles_center_y{52, 61, 61, 25, 31};
+    vector<int> circles_center_x{17, 16, 12, 0, 40};
+    vector<int> circles_center_y{52, 61, 61, 25, 31};
 
     // Solution - YES
     cout << solve(target_x, target_y, circles_count, radius, circles_center_x,
